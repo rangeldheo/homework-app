@@ -4,6 +4,7 @@ namespace App\Services;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Utils;
 use Illuminate\Support\Facades\Config;
 
 
@@ -25,7 +26,7 @@ class ClientApi
     public static function init()
     {
         self::$httpClient = new Client();
-        self::$host       = Config::get('environment.url_api');
+        self::$host       = getenv('URL_API');
     }
 
     /**
@@ -107,20 +108,16 @@ class ClientApi
                 [
                     'json' => $body,
                     'headers' => [
-                        'Authorization' => null
+                        'Authorization' => ''
                     ]
                 ]
             );
 
-            return response()->json([
-                $response->getBody()->getContents()
-            ]);
+            return Utils::jsonDecode($response->getBody()->getContents());
 
         } catch (ClientException $e) {
 
-            return response()->json([
-                $e->getResponse()->getStatusCode()
-            ]);
+            return Utils::jsonDecode($e->getResponse()->getStatusCode());
         }
     }
 }
