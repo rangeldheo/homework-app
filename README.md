@@ -31,6 +31,8 @@ MAIL_ENCRYPTION=null
 
 MAIL_FROM_ADDRESS=seuusuario@seudominio.com
 
+Rode o comando **php artisan key:generate** para gerar a chave do app Laravel necessária
+
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
