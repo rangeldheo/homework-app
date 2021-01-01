@@ -11,10 +11,11 @@ Crie um arquivo .env na pasta raiz
 
 As configurações seguem a convenção do Laravel 7
 
-Você precisará configurar a URL da API
+Você precisará configurar a URL da API, é importante notar que os 
+sufixos **/api/v1** são necessários após a url base da API
 e um disparador de emails como a seguir:
 
-URL_API=http://homework-api.test/api/v1/
+URL_API=http://url-api/api/v1/
 
 MAIL_MAILER=smtp
 
